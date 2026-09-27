@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Amir Fernández</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        coral: {
+                            400: '#ff8fa3',
+                            500: '#ff748c',
+                            600: '#ff4d6d',
+                        },
+                        dark: '#333333'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f9f9f9;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Ocultar barra de scroll para un look de app nativa */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        /* Animaciones para revelar contenido */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Transición de los acordeones de habilidades */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+            opacity: 0;
+        }
+
+        .accordion-item.open .accordion-content {
+            opacity: 1;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Sombra especial para el botón flotante */
+        .btn-shadow {
+            box-shadow: 0 10px 25px -5px rgba(255, 116, 140, 0.5), 0 8px 10px -6px rgba(255, 116, 140, 0.1);
+        }
+    </style>
+</head>
+<body class="text-dark antialiased">
+
+    
+    <main class="max-w-md mx-auto min-h-screen bg-white relative overflow-hidden shadow-2xl sm:rounded-3xl sm:my-8 sm:min-h-<850px> sm:border sm:border-gray-100">
+        
+        
+        <div class="absolute top-0 left-0 w-full h-48 bg-gradient-to-br from-coral-400 to-coral-600 rounded-b-<40px> z-0"></div>
+
+        
+        <header class="relative z-10 flex flex-col items-center pt-16 px-6 text-center">
+            <div class="w-32 h-32 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-200">
+                
+                <img src="foto.jpeg" alt="Amir Fernández" class="w-full h-full object-cover">
+            </div>
+            <h1 class="mt-4 text-3xl font-bold text-gray-800 tracking-tight">Amir Fernández</h1>
+            <p class="text-coral-600 font-semibold mt-1 uppercase tracking-wider text-sm flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Postulante a Compañero de Aventuras
+            </p>
+        </header>
+
+        
+        <div class="px-6 mt-8 space-y-8 relative z-10 pb-32">
+            
+            
+            <section class="reveal">
+                <h2 class="text-lg font-bold text-gray-800 border-b-2 border-coral-400 inline-block pb-1 mb-4">Sobre mí</h2>
+                <div class="bg-gray-50 rounded-2xl p-5 shadow-sm border border-gray-100">
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        Residente en <span class="font-semibold text-gray-800">Piura</span>.
+                        Mejor dicho tu <span class="font-semibold text-gray-800">vecinito</span>.<br><br> 
+                        Especialista en escuchar, hacer reír y encontrar soluciones creativas a cualquier bug o contratiempo que presente la vida.
+                    </p>
+                </div>
+            </section>
+
+            
+            <section class="reveal">
+                <h2 class="text-lg font-bold text-gray-800 border-b-2 border-coral-400 inline-block pb-1 mb-4">Habilidades Destacadas</h2>
+                <p class="text-xs text-gray-400 mb-4 italic">Toca para descubrir más detalles 👇</p>
+                
+                <div class="space-y-3">
+                    
+                    
+                    <div class="accordion-item bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                        <button class="w-full px-5 py-4 flex justify-between items-center text-left focus:outline-none focus:bg-coral-50 transition-colors" onclick="toggleAccordion(this)">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-coral-100 p-2 rounded-lg text-coral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 10l-5-5-5 5"/><path d="M12 5v14"/></svg>
+                                </div>
+                                <span class="font-semibold text-gray-700">Mixología</span>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 accordion-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="accordion-content px-5 bg-gray-50 text-sm text-gray-600">
+                            Preparación experta de mojitos, cócteles de algarrobina y todo lo que te puedas imaginar, listos para cualquier brindis. Experto en risas y tiempo de calidad
+                        </div>
+                    </div>
+
+                    
+                    <div class="accordion-item bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                        <button class="w-full px-5 py-4 flex justify-between items-center text-left focus:outline-none focus:bg-coral-50 transition-colors" onclick="toggleAccordion(this)">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-coral-100 p-2 rounded-lg text-coral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                                </div>
+                                <span class="font-semibold text-gray-700">Resistencia y Aventura</span>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 accordion-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="accordion-content px-5 bg-gray-50 text-sm text-gray-600">
+                            Puedes contar conmigo para largas caminatas y aventuras espontáneas, cortesía de la calistenia de fin de semana. Así mismo me encanta conocer nuevos lugares y sobre todo mirar los hermosos paisajes. ¿Los mejores son los atardeceres no crees? 
+                        </div>
+                    </div>
+
+                    
+                    <div class="accordion-item bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                        <button class="w-full px-5 py-4 flex justify-between items-center text-left focus:outline-none focus:bg-coral-50 transition-colors" onclick="toggleAccordion(this)">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-coral-100 p-2 rounded-lg text-coral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="M4 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8"/></svg>
+                                </div>
+                                <span class="font-semibold text-gray-700">Idiomas Múltiples</span>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 accordion-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>   
+                        <div class="accordion-content px-5 bg-gray-50 text-sm text-gray-600">
+                            Español, un poco de inglés, código fuente, y un nivel <span class="font-bold text-coral-500">muy avanzado</span> en entender indirectas no dan directas.
+                        </div>
+                    </div>
+
+                    
+                    <div class="accordion-item bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                        <button class="w-full px-5 py-4 flex justify-between items-center text-left focus:outline-none focus:bg-coral-50 transition-colors" onclick="toggleAccordion(this)">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-coral-100 p-2 rounded-lg text-coral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="M4 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8"/></svg>
+                                </div>
+                                <span class="font-semibold text-gray-700">Cosas curiosas</span>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 accordion-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>   
+                        <div class="accordion-content px-5 bg-gray-50 text-sm text-gray-600">
+                            Atento hasta más no poder, se cuando darte espacio, de pequeño me gustaba hacer skateboarding aunque no era muy bueno jajaj
+                            tengo barba pero si te incomoda me la puedo quitar, mi color favorito es el rojo y el tuyo es el rosado, actualmente mi banda favorita es Morat, gracias a una hermosa chica descubrí mi banda favorita <span class="font-bold text-coral-500">( gracias a ti..)</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            
+            <section class="reveal">
+                <h2 class="text-lg font-bold text-gray-800 border-b-2 border-coral-400 inline-block pb-1 mb-4">Experiencia Comprobada</h2>
+                
+                
+                <div class="relative border-l-2 border-coral-200 space-y-6 ml-2 mt-4">
+                    
+                    
+                    <div class="relative pl-6">
+                        <div class="absolute w-4 h-4 bg-coral-500 rounded-full top-1 border-2 border-white shadow-sm box-content" style="left: -1px;"></div>
+                        <h3 class="font-semibold text-gray-800">Manejo de Crisis</h3>
+                        <p class="text-sm text-gray-600 mt-1">Eficacia bajo presión y resolución de problemas difíciles, habilidades entrenadas arduamente por la vida.</p>
+                    </div>
+
+                    
+                    <div class="relative pl-6">
+                        <div class="absolute w-4 h-4 bg-coral-500 rounded-full top-1 border-2 border-white shadow-sm box-content" style="left: -1px;"></div>
+                        <h3 class="font-semibold text-gray-800">Temple de Acero</h3>
+                        <p class="text-sm text-gray-600 mt-1">Nivel de paciencia comparable con la de un monje tibetano jaja. Ideal para esperar turnos largos o decidir qué comer.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        
+        <div class="fixed bottom-0 left-0 w-full p-4 bg-gradient-to-t from-white via-white to-transparent sm:absolute sm:rounded-b-3xl z-40">
+            <button onclick="acceptInterview()" class="w-full max-w-sm mx-auto flex items-center justify-center gap-2 bg-gradient-to-r from-coral-500 to-coral-600 hover:from-coral-600 hover:to-coral-700 text-white font-bold py-4 px-6 rounded-2xl btn-shadow transition-transform transform hover:scale-<1.02> active:scale-95">
+                <span>Agendar visita/entrevista</span>
+                <span class="text-xl">💖</span>
+            </button>
+        </div>
+
+        
+        <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm px-4">
+            <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
+                <div class="text-5xl mb-4 animate-bounce">🎉</div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">¡Excelente elección!</h3>
+                <p class="text-gray-600 mb-6 text-sm">
+                    La solicitud ha sido enviada al servidor de mi corazón. Quedo a la espera de tu mensaje para coordinar la fecha y lugar de la entrevista.
+                </p>
+                <button onclick="closeModal()" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-xl w-full transition-colors">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 50;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); 
+
+        function toggleAccordion(btn) {
+            const item = btn.parentElement;
+            const content = item.querySelector('.accordion-content');
+            const isOpen = item.classList.contains('open');
+
+            document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('open');
+                    otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                }
+            });
+
+            if (!isOpen) {
+                item.classList.add('open');
+                content.style.maxHeight = content.scrollHeight + 30 + "px"; 
+            } else {
+                item.classList.remove('open');
+                content.style.maxHeight = null;
+            }
+        }
+
+        function acceptInterview() {
+            var duration = 3 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function() {
+                var timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                var particleCount = 50 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, { particleCount,
+                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+                }));
+                confetti(Object.assign({}, defaults, { particleCount,
+                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+                }));
+            }, 250);
+            
+            const modal = document.getElementById('successModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('successModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+        }
+    </script>
+</body>
+</html>
